@@ -15,11 +15,13 @@ public class Principal {
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		PermitirAcesso permitriAcesso = new Secretario(login, senha);
 
-		if (new Secretario().autenticar(login, senha)) {// se TRUE acessa se FALSE não acessa
+		if (permitriAcesso.autenticar()) {// se TRUE acessa se FALSE não acessa
 
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
-			
+
 			for (int qtd = 1; qtd <= 2; qtd++) {
 				String nome = JOptionPane.showInputDialog("Qual é o nome do aluno" + qtd + " ?");
 
