@@ -7,18 +7,24 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import cursojava.classes.auxiliares.FuncaoAutenticacao;
 import cursojava.interfaces.PermitirAcesso;
 
 public class Principal {
 	public static void main(String[] args) {
+
 		String login = JOptionPane.showInputDialog("Informe a login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
-		
-		PermitirAcesso permitriAcesso = new Secretario(login, senha);
 
-		if (permitriAcesso.autenticar()) {// se TRUE acessa se FALSE não acessa
+		// FuncaoAutenticacao autenticacao = new FuncaoAutenticacao();
+
+		// PermitirAcesso permitirAcesso = new Secretario(login, senha);
+
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {// vou travar o contrato para autoriza
+																				// somente quem realmente tem o contrato
+																				// 100% legitimo.
 
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
