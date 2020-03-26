@@ -1,27 +1,34 @@
 package cursojava.classes;
 
+import java.util.Arrays;
+
 /*Essa classe diciplina servirá para dodosos objetos e instancia de nota e materia */
 public class Disciplina {
-
-	private double nota;
+	
+	
+	// cada diciplina terá quatro nota durante o ano inteiro.
+	private double[] nota = new double[4];
 	private String disciplina;
-	
-	
 
-	public double getNota() {
+	public double[] getNota() {
 		return nota;
 	}
 
-	public void setNota(double nota) {
+	public void setNota(double[] nota) {
 		this.nota = nota;
-	}
-
-	public String getDisciplina() {
-		return disciplina;
 	}
 
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
+	}
+
+	public double getMediaNotas() {
+		double somaTotal = 0;
+
+		for (int pos = 0; pos < nota.length; pos++) {
+			somaTotal += nota[pos];
+		}
+		return somaTotal / 4;
 	}
 
 	@Override
@@ -29,9 +36,7 @@ public class Disciplina {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((disciplina == null) ? 0 : disciplina.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(nota);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + Arrays.hashCode(nota);
 		return result;
 	}
 
@@ -49,7 +54,7 @@ public class Disciplina {
 				return false;
 		} else if (!disciplina.equals(other.disciplina))
 			return false;
-		if (Double.doubleToLongBits(nota) != Double.doubleToLongBits(other.nota))
+		if (!Arrays.equals(nota, other.nota))
 			return false;
 		return true;
 	}
@@ -58,6 +63,5 @@ public class Disciplina {
 	public String toString() {
 		return "Disciplina [nota=" + nota + ", disciplina=" + disciplina + "]";
 	}
-	
-	
+
 }

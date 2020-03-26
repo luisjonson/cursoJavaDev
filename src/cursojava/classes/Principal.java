@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import cursojava.classes.auxiliares.FuncaoAutenticacao;
 import cursojava.interfaces.PermitirAcesso;
 
 public class Principal {
@@ -57,19 +56,19 @@ public class Principal {
 
 				Disciplina disciplina1 = new Disciplina();
 				disciplina1.setDisciplina("Java");
-				disciplina1.setNota(10);
+				// disciplina1.setNota(10);
 
 				Disciplina disciplina2 = new Disciplina();
 				disciplina2.setDisciplina("php");
-				disciplina2.setNota(10);
+				// disciplina2.setNota(10);
 
 				Disciplina disciplina3 = new Disciplina();
 				disciplina3.setDisciplina("javascript");
-				disciplina3.setNota(20);
+				// disciplina3.setNota(20);
 
 				Disciplina disciplina4 = new Disciplina();
 				disciplina4.setDisciplina("Banco de dados");
-				disciplina4.setNota(80);
+				// disciplina4.setNota(80);
 
 				for (int pos = 1; pos <= 4; pos++) {
 					String nomeDisciplina = JOptionPane.showInputDialog("Digite a Disciplina " + pos);
@@ -77,7 +76,7 @@ public class Principal {
 
 					Disciplina disciplina = new Disciplina();
 					disciplina.setDisciplina(nomeDisciplina);
-					disciplina.setNota(Double.valueOf(nomeNota));
+					// disciplina.setNota(Double.valueOf(nomeNota));
 
 					aluno1.getDiciplinas().add(disciplina);
 
